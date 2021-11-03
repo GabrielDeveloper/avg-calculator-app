@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static java.lang.Math.round;
+
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = "MainActivity";
@@ -37,14 +39,15 @@ public class MainActivity extends AppCompatActivity {
             double resultadoa1 = (ava1 * 0.4) + (ava2 * 0.4);
             double resultadoprova = (prova * 0.6);
             double nfp = resultadoa1 + resultadoprova;
+            double nfpFinal = Math.round(nfp * 100.0) / 100.0;
 
-            if (nfp >= 6) {
+            if (nfpFinal >= 6) {
 
-                textviewresultado.setText("APROVADO! NFp = "+nfp);
+                textviewresultado.setText("APROVADO! NFp = "+nfpFinal);
 
             }else if (nfp <= 5.9) {
 
-                textviewresultado.setText("REPROVADO NFp = "+nfp);
+                textviewresultado.setText("REPROVADO NFp = "+nfpFinal);
 
             }
         } catch (Exception ex){
